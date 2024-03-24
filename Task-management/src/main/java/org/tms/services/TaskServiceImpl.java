@@ -2,7 +2,7 @@ package org.tms.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.tms.TaskRepository;
+import org.tms.repo.TaskRepository;
 import org.tms.model.TaskData;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void createTask(TaskData task) throws Exception {
-
+        taskRepository.save(task);
     }
 
     @Override
@@ -27,4 +27,6 @@ public class TaskServiceImpl implements TaskService {
     public TaskData fetchTask(int taskId) throws Exception {
         return taskRepository.findById(taskId).orElseThrow(()-> new Exception("Not found"));
     }
+
+
 }

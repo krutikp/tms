@@ -3,6 +3,7 @@ package org.tms.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
@@ -10,8 +11,8 @@ import lombok.Data;
 @Table(name = "TASKS_TBL")
 public class TaskData {
      @Id
-     @GeneratedValue(strategy= GenerationType.AUTO)
-     @Column(name = "task_id" , nullable = false)
+     @GeneratedValue(strategy= GenerationType.IDENTITY)
+     @Column(name = "task_id" , updatable = false, nullable = false)
      int taskid;
 
      @Column(name = "title" , nullable = false)
@@ -23,7 +24,7 @@ public class TaskData {
      String desc;
 
      @Column(name="status_id", nullable =false)
-     @NotBlank(message = "status must be provided.")
+     @NotNull
      int statusId;
 
      @OneToOne(fetch = FetchType.LAZY)

@@ -1,30 +1,44 @@
 import React from 'react';
-import axios from 'axios'
 import { DataGrid, GridToolbar } from '@material-ui/data-grid';
 import TaskService from '../services/TaskService'
-
-const fetchTaskURL = "http://localhost:8080/api/task"
-
-const VISIBLE_FIELDS = ['taskid', 'title', 'desc', 'status'];
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 const columns = [
-  {field: "id", hideable:true},
-   {field: 'taskid', headerName: 'Task Id', width: 120 },
-  { field: 'title', headerName: 'Title', width: 130 },
-  { field: 'desc', headerName: 'Description', width: 190 },
-  { field: 'status', headerName: 'Status', width: 130 }
+  {field: "id", hide:true},
+   {field: 'taskid', headerName: 'Task Id', width: 150 },
+  { field: 'title', headerName: 'Title', width: 250 },
+  { field: 'desc', headerName: 'Description', width: 300 },
+  { field: 'status', headerName: 'Status', width: 130 },
+  {
+      field: 'actions',
+      headerName: 'Actions',
+      width: 130,
+      renderCell: (params) => (
+        <div>
+          <IconButton aria-label="edit">
+            <EditIcon />
+          </IconButton>
+          <IconButton aria-label="delete">
+            <DeleteIcon />
+          </IconButton>
+        </div>
+      ),
+    }
 ];
 
 function MyGrid() {
  let result=[];
 const [items, setItems] = React.useState(result);
 
-
-
 const fetchTask = () => {
     TaskService.getAllTask().then(data=>setItems(data));};
-
+let initialized= false;
 React.useEffect(() => {
+if(!initialized){
    result=fetchTask();
+   initialized=true;
+   }
 }, []);
 
 let rows = [];
@@ -41,7 +55,7 @@ for(let i=0;i<items.length;i++){
 }
   return (
     <div style={{ height: 400, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} pageSize={100}  slots={{ toolbar: GridToolbar }}  visibleFields={VISIBLE_FIELDS}  />
+      <DataGrid rows={rows} columns={columns} pageSize={25}  slots={{ toolbar: GridToolbar }}  />
     </div>
 
   );

@@ -30,5 +30,10 @@ public class TaskConroller {
 
     }
 
+    @PostMapping("/create")
+    public void createTask(@RequestBody TaskData data)throws  Exception{
+        taskService.createTask(data);
+    }
+
 
 }
