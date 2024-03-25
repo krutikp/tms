@@ -32,7 +32,10 @@ TaskService.createTask({ title, "desc":description, "statusId":status })
   setDescription('');
   setStatus('');
 
-});
+}) .catch(error => {
+       console.log(error.response.data);
+        setMessage(JSON.stringify(error.response.data));
+    });
 
   };
     const handleDescriptionChange = (event) => {

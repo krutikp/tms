@@ -20,7 +20,7 @@ public class TaskData {
      String title;
 
      @Column(name = "description" , nullable = false)
-     @NotBlank(message = "desc can not be empty.")
+     @NotBlank(message = "description can not be empty.")
      String desc;
 
      @Column(name="status_id", nullable =false)
@@ -32,5 +32,43 @@ public class TaskData {
      @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
      Status status;
 
+     public int getTaskid() {
+          return taskid;
+     }
 
+     public void setTaskid(int taskid) {
+          this.taskid = taskid;
+     }
+
+     public String getTitle() {
+          return title;
+     }
+
+     public void setTitle(String title) {
+          this.title = title;
+     }
+
+     public String getDesc() {
+          return desc;
+     }
+
+     public void setDesc(String desc) {
+          this.desc = desc;
+     }
+
+     public int getStatusId() {
+          return statusId;
+     }
+
+     public void setStatusId(int statusId) {
+          this.statusId = statusId;
+     }
+
+     public Status getStatus() {
+          return status;
+     }
+
+     public void setStatus(Status status) {
+          this.status = status;
+     }
 }

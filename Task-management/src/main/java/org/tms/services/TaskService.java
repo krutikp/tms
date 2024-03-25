@@ -14,4 +14,6 @@ public interface TaskService {
 
     void removeTask(int taskId) throws Exception;
 
+    void updateTask(TaskData task)throws Exception;
+
 }

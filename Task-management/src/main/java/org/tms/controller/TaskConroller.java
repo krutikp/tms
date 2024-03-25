@@ -1,5 +1,6 @@
 package org.tms.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.tms.model.TaskData;
@@ -31,13 +32,18 @@ public class TaskConroller {
     }
 
     @PostMapping("/create")
-    public void createTask(@RequestBody TaskData data)throws  Exception{
+    public void createTask(@Valid @RequestBody TaskData data)throws  Exception{
         taskService.createTask(data);
     }
 
     @DeleteMapping("/remove/{id}")
     public void removeTask(@PathVariable(name="id") int taskid)throws  Exception{
         taskService.removeTask(taskid);
+    }
+
+    @PutMapping("/update")
+    public void updateTask(@RequestBody @Valid TaskData data)throws  Exception{
+        taskService.updateTask(data);
     }
 
 

@@ -34,5 +34,13 @@ public class TaskServiceImpl implements TaskService {
         taskRepository.deleteById(taskId);
     }
 
+    @Override
+    public void updateTask(TaskData task) throws Exception {
+        TaskData toupdate= taskRepository.getReferenceById(task.getTaskid());
+        toupdate.setStatusId(task.getStatusId());
+        taskRepository.save(toupdate);
+
+    }
+
 
 }
