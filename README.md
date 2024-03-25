@@ -13,18 +13,22 @@ Tech stack
 9) Node js
 9) material ui core /icons/data-grid installation 
 
-Database: MySQL
+Database:
+--------
+ MySQL
 
 DB Scripts: db_script.txt file provided
 
-Note: Please execute these script after creating schema
+Note:
+---------
+ Please execute these script after creating schema
 
 
 Enviorment Variables/properties Required
 --------------------------------
-jasypt.encryptor.algorithm
-jasypt.encryptor.iv-generator-classname
-jasypt.encryptor.password
+- jasypt.encryptor.algorithm
+- jasypt.encryptor.iv-generator-classname
+- jasypt.encryptor.password
 
 As DB credentials are encrypted you provide  your encrypted  text in application.properties
 
@@ -37,7 +41,9 @@ Host
 ------
 http://localhost:3000
 
-Spring boot App  host: http://localhost:8080
+Spring boot App  host:
+----------------------
+ http://localhost:8080
 
 
 
