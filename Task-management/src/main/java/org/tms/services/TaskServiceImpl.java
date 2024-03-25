@@ -28,5 +28,11 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.findById(taskId).orElseThrow(()-> new Exception("Not found"));
     }
 
+    @Override
+    public void removeTask(int taskId) throws Exception {
+
+        taskRepository.deleteById(taskId);
+    }
+
 
 }

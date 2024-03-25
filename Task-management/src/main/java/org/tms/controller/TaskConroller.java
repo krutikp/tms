@@ -35,5 +35,10 @@ public class TaskConroller {
         taskService.createTask(data);
     }
 
+    @DeleteMapping("/remove/{id}")
+    public void removeTask(@PathVariable(name="id") int taskid)throws  Exception{
+        taskService.removeTask(taskid);
+    }
+
 
 }

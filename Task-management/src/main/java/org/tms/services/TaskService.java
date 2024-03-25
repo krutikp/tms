@@ -12,4 +12,6 @@ public interface TaskService {
 
     TaskData fetchTask(int taskId) throws Exception;
 
+    void removeTask(int taskId) throws Exception;
+
 }
