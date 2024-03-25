@@ -1,0 +1,39 @@
+
+use Taskmanagement;
+
+
+
+CREATE TABLE Status_tbl (
+    status_id INT PRIMARY KEY,
+    statusName VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Tasks_tbl(
+    task_id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    description varchar(1000),
+    status_id int,
+    constraint FK_TASKTBL_ID Foreign key(status_id) references status_tbl(status_id)
+);
+
+insert into status_Tbl(status_id, statusname) values(1,"To Do");
+insert into status_Tbl(status_id, statusname) values(2,"Open");
+insert into status_Tbl(status_id, statusname) values(3,"In Progress");
+insert into status_Tbl(status_id, statusname) values(4,"Review");
+insert into status_Tbl(status_id, statusname) values(5,"Done");
+
+Commit;
+
+INSERT INTO TASKs_TBL(TASK_ID, TITLE,DESCRIPTION,STATUS_ID)
+values(1, "Task 1", "task decriotion", 1);
+INSERT INTO TASKs_TBL(TASK_ID, TITLE,DESCRIPTION,STATUS_ID)
+values(2, "Task 2", "task decriotion", 2);
+INSERT INTO TASKs_TBL(TASK_ID, TITLE,DESCRIPTION,STATUS_ID)
+values(3, "Task 3", "task decriotion", 3);
+INSERT INTO TASKs_TBL(TASK_ID, TITLE,DESCRIPTION,STATUS_ID)
+values(4, "Task 4", "task decriotion", 5);
+INSERT INTO TASKs_TBL(TASK_ID, TITLE,DESCRIPTION,STATUS_ID)
+values(5, "Task 5", "task decriotion", 2);
+
+commit;
+
