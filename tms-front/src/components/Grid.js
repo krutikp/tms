@@ -23,8 +23,10 @@ const handleEdit = (row) => {
   const handleSave = (row) => {
       setEditItem(!editItem);
       let findStatus = status.find((r)=> r.name === row.status);
-      let task = { "taskid":row.taskid,"title":row.title, "desc":rows.description, "statusId":findStatus.id }
-  TaskService.updateTask(task).then(res=>{fetchTask();})
+      let task = { "taskid":row.taskid,"title":row.title, "desc":row.desc, "statusId":findStatus.id }
+  TaskService.updateTask(task).then(res=>{fetchTask();
+    setMessage("Task updated successfully.");
+  })
      .catch(error => {
            console.log(error.response.data);
             setMessage(JSON.stringify(error.response.data));
