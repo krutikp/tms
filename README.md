@@ -11,17 +11,20 @@ Tech stack
 7) jasypt
 8) junit
 9) Node js
-9) material ui core /icons/data-grid installation 
+10) material ui core /icons/data-grid installation 
+11) Git
 
 Database:
 --------
  MySQL
 
-DB Scripts: db_script.txt file provided
+DB Scripts: 
+----------
+db_script.txt file provided
 
 Note:
 ---------
- Please execute these script after creating schema
+Please execute these script after creating schema
 
 
 Enviorment Variables/properties Required
