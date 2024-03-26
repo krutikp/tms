@@ -2,9 +2,11 @@ package org.tms.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 @Entity
 @Table(name="status_Tbl")
 public class Status {

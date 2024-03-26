@@ -24,7 +24,7 @@ const handleEdit = (row) => {
       setEditItem(!editItem);
       let findStatus = status.find((r)=> r.name === row.status);
       let task = { "taskid":row.taskid,"title":row.title, "desc":rows.description, "statusId":findStatus.id }
-    TaskService.updateTask(task).then(res=>{fetchTask();})
+  TaskService.updateTask(task).then(res=>{fetchTask();})
      .catch(error => {
            console.log(error.response.data);
             setMessage(JSON.stringify(error.response.data));
@@ -43,7 +43,7 @@ const handleClear = ()=>{
 
 const columns = [
   {field: "id", hide:true},
-   {field: 'taskid', headerName: 'Task Id', width: 150 },
+  {field: 'taskid', headerName: 'Task Id', width: 150 },
   { field: 'title', headerName: 'Title', width: 250 },
   { field: 'desc', headerName: 'Description', width: 300 },
   { field: 'status', headerName: 'Status', width: 130, editable: editItem,
@@ -57,20 +57,19 @@ const columns = [
       renderCell: (params) => (
         <div>
         {
-
         !editItem  &&
           <IconButton aria-label="edit">
             <EditIcon onClick={()=> handleEdit(params.row) } />
           </IconButton>
         } {editItem &&
           <IconButton aria-label="save">
-                      <SaveIcon onClick={()=>handleSave(params.row)} />
-                    </IconButton>
+               <SaveIcon onClick={()=>handleSave(params.row)} />
+          </IconButton>
+           } {editItem &&
+           <IconButton aria-label="clear">
+                <ClearIcon  onClick={handleClear} />
+           </IconButton>
            }
-
-           {editItem && <IconButton aria-label="clear">
-                             <ClearIcon  onClick={handleClear} />
-                  </IconButton>}
           <IconButton aria-label="delete">
             <DeleteIcon onClick = {()=>handleRemove(params.row)} />
           </IconButton>
